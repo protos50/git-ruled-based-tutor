@@ -1,6 +1,9 @@
 # Git Interactive Tutor 🚀
 
-An intelligent assistant designed to teach and practice Git interactively. This project combines a conversational chat with a realistic terminal simulator to explain concepts, visualize command effects, and guide the user step-by-step.
+An intelligent rule-based assistant designed to teach and practice Git interactively.
+It uses pattern-matching and a small knowledge base to guide the user step-by-step, explain commands, visualize effects, and help resolve common Git issues.
+
+> **🤖 Note on Development:** This project was designed and programmed with the assistance of Artificial Intelligence. It serves as a dual example: on one hand, it teaches the fundamentals of classical AI techniques (rule-based reasoning + knowledge lookup), and on the other, it demonstrates how modern generative AI can accelerate and enhance software development.
 
 ## 🌟 Key Features
 
@@ -72,5 +75,5 @@ Open `http://localhost:3000` in your browser.
 
 ## 🎓 Academic Context
 
-Developed as Prototype 1 for the Artificial Intelligence course (TP2).
+Developed as Prototype 1 for the Artificial Intelligence course.
 
