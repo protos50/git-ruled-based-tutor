@@ -1,0 +1,2131 @@
+[
+  {
+    "command": "git init",
+    "tags": [
+      "inicio",
+      "crear",
+      "repositorio",
+      "empezar"
+    ],
+    "flags": [
+      {
+        "flag": "<directory>",
+        "description": "Crea el repositorio en una carpeta específica en lugar de la actual."
+      },
+      {
+        "flag": "--bare",
+        "description": "Crea un repositorio 'bare' (sin directorio de trabajo), usado típicamente para servidores centrales."
+      }
+    ],
+    "examples": [
+      "git init",
+      "git init mi-proyecto"
+    ],
+    "category": "Configuración e Inicio",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Transforma una carpeta común en un repositorio de Git, activando el control de versiones. Crea la carpeta oculta `.git/` donde se almacena todo el historial de cambios.",
+        "deep_explanation": "El comando `git init` crea una carpeta oculta `.git/`. Aquí es donde Git almacena toda la base de datos de cambios, configuración y el historial. Sin esta carpeta, no hay control de versiones. No toques nada dentro de `.git/` manualmente a menos que seas un experto.",
+        "common_pitfalls": "Ejecutar `git init` dentro de tu carpeta personal (home) por error, haciendo que todo tu usuario sea un repo gigante.",
+        "flags": [
+          {
+            "flag": "<directory>",
+            "description": "Crea el repositorio en una carpeta específica en lugar de la actual."
+          },
+          {
+            "flag": "--bare",
+            "description": "Crea un repositorio 'bare' (sin directorio de trabajo), usado típicamente para servidores centrales."
+          }
+        ],
+        "examples": [
+          "git init",
+          "git init mi-proyecto"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Transforms a regular folder into a Git repository, enabling version control. Creates the hidden `.git/` folder where the entire change history is stored.",
+        "deep_explanation": "The `git init` command creates a hidden `.git/` folder. This is where Git stores the entire database of changes, configuration, and history. Without this folder, there is no version control. Do not touch anything inside `.git/` manually unless you are an expert.",
+        "common_pitfalls": "Running `git init` inside your home folder by mistake, turning your entire user directory into a giant repo.",
+        "flags": [
+          {
+            "flag": "<directory>",
+            "description": "Creates the repository in a specific folder instead of the current one."
+          },
+          {
+            "flag": "--bare",
+            "description": "Creates a 'bare' repository (no working directory), typically used for central servers."
+          }
+        ],
+        "examples": [
+          "git init",
+          "git init my-project"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git clone",
+    "tags": [
+      "descargar",
+      "copiar",
+      "remoto",
+      "github"
+    ],
+    "flags": [
+      {
+        "flag": "--depth 1",
+        "description": "Descarga solo el último commit (shallow clone), útil si el repo es gigante y solo quieres el código actual."
+      },
+      {
+        "flag": "-b <rama>",
+        "description": "Clona apuntando directamente a una rama específica en lugar de 'main'."
+      }
+    ],
+    "examples": [
+      "git clone https://github.com/usuario/repo.git",
+      "git clone https://github.com/usuario/repo.git . (el punto clona en la carpeta actual)"
+    ],
+    "category": "Configuración e Inicio",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Descarga una copia completa de un repositorio existente (como de GitHub) a tu máquina, incluyendo todo el historial de commits. Es la forma estándar de obtener un proyecto para contribuir.",
+        "deep_explanation": "`git clone` hace tres cosas automáticamente:\n1. Crea una carpeta nueva.\n2. Inicializa un `.git` dentro.\n3. Descarga toda la historia del repositorio remoto.\n4. Hace un 'checkout' de la rama principal para que puedas trabajar inmediatamente.",
+        "common_pitfalls": "Clonar un repositorio DENTRO de otro repositorio existente (repos anidados), lo cual causa problemas de seguimiento.",
+        "flags": [
+          {
+            "flag": "--depth 1",
+            "description": "Descarga solo el último commit (shallow clone), útil si el repo es gigante y solo quieres el código actual."
+          },
+          {
+            "flag": "-b <rama>",
+            "description": "Clona apuntando directamente a una rama específica en lugar de 'main'."
+          }
+        ],
+        "examples": [
+          "git clone https://github.com/usuario/repo.git",
+          "git clone https://github.com/usuario/repo.git . (el punto clona en la carpeta actual)"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Downloads a complete copy of an existing repository (like from GitHub) to your machine, including the entire commit history. It is the standard way to get a project to contribute to.",
+        "deep_explanation": "`git clone` does three things automatically:\n1. Creates a new folder.\n2. Initializes a `.git` inside.\n3. Downloads the entire history of the remote repository.\n4. Checks out the main branch so you can work immediately.",
+        "common_pitfalls": "Cloning a repository INSIDE another existing repository (nested repos), which causes tracking issues.",
+        "flags": [
+          {
+            "flag": "--depth 1",
+            "description": "Downloads only the latest commit (shallow clone), useful if the repo is huge and you only want the current code."
+          },
+          {
+            "flag": "-b <branch>",
+            "description": "Clones pointing directly to a specific branch instead of 'main'."
+          }
+        ],
+        "examples": [
+          "git clone https://github.com/user/repo.git",
+          "git clone https://github.com/user/repo.git . (the dot clones into the current folder)"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git status",
+    "tags": [
+      "estado",
+      "ver",
+      "revisar",
+      "rojo",
+      "verde"
+    ],
+    "flags": [
+      {
+        "flag": "-s",
+        "description": "Modo corto (Short). Muestra una salida compacta (M=Modificado, ??=Untracked)."
+      },
+      {
+        "flag": "-b",
+        "description": "Muestra información de la rama actual (si está adelante/atrás del remoto)."
+      },
+      {
+        "flag": "-v",
+        "description": "Muestra también el diff (qué cambió) además del nombre del archivo."
+      }
+    ],
+    "examples": [
+      "git status",
+      "git status -sb"
+    ],
+    "category": "Estado y Staging",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Muestra el estado actual de tu proyecto: qué archivos han cambiado, cuáles están listos para guardarse (staged) y cuáles son nuevos (untracked). Es tu brújula en Git.",
+        "deep_explanation": "Es el comando más importante. Te dice tres cosas cruciales:\n1. **Untracked:** Archivos nuevos que Git no conoce.\n2. **Modified:** Archivos que Git conoce pero han cambiado.\n3. **Staged:** Archivos listos para ser guardados en el próximo commit.\nSi ves nombres en rojo, no están listos. Si están en verde, están listos.",
+        "common_pitfalls": "Hacer commit pensando que se guardó todo, cuando en realidad los archivos estaban en rojo (modified) y no se hizo `git add`.",
+        "flags": [
+          {
+            "flag": "-s",
+            "description": "Modo corto (Short). Muestra una salida compacta (M=Modificado, ??=Untracked)."
+          },
+          {
+            "flag": "-b",
+            "description": "Muestra información de la rama actual (si está adelante/atrás del remoto)."
+          },
+          {
+            "flag": "-v",
+            "description": "Muestra también el diff (qué cambió) además del nombre del archivo."
+          }
+        ],
+        "examples": [
+          "git status",
+          "git status -sb"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Shows the current status of your project: which files have changed, which are ready to be saved (staged), and which are new (untracked). It is your compass in Git.",
+        "deep_explanation": "It is the most important command. It tells you three crucial things:\n1. **Untracked:** New files that Git doesn't know about.\n2. **Modified:** Files that Git knows about but have changed.\n3. **Staged:** Files ready to be saved in the next commit.\nIf you see names in red, they are not ready. If they are in green, they are ready.",
+        "common_pitfalls": "Committing thinking everything was saved, when in reality the files were in red (modified) and `git add` was not done.",
+        "flags": [
+          {
+            "flag": "-s",
+            "description": "Short mode. Shows a compact output (M=Modified, ??=Untracked)."
+          },
+          {
+            "flag": "-b",
+            "description": "Shows information about the current branch (ahead/behind the remote)."
+          },
+          {
+            "flag": "-v",
+            "description": "Also shows the diff (what changed) in addition to the filename."
+          }
+        ],
+        "examples": [
+          "git status",
+          "git status -sb"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git add",
+    "tags": [
+      "agregar",
+      "preparar",
+      "stage",
+      "subir"
+    ],
+    "flags": [
+      {
+        "flag": ".",
+        "description": "Agrega todos los archivos nuevos y modificados en la carpeta actual y subcarpetas."
+      },
+      {
+        "flag": "-p",
+        "description": "Modo interactivo (patch). Te pregunta trozo por trozo (hunk) si quieres agregarlo. Ideal para commits limpios."
+      },
+      {
+        "flag": "-u",
+        "description": "Solo agrega archivos modificados y eliminados, pero ignora los archivos nuevos (untracked)."
+      }
+    ],
+    "examples": [
+      "git add archivo.txt",
+      "git add .",
+      "git add -p"
+    ],
+    "category": "Estado y Staging",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Prepara tus cambios para el próximo commit, moviéndolos del directorio de trabajo al área de staging. Git solo guardará en el historial los archivos que hayas 'agregado' con este comando.",
+        "deep_explanation": "`git add` no guarda los cambios en el historial, solo los prepara ('toma la foto' antes de guardarla en el álbum). Git solo guardará en el commit lo que hayas agregado con este comando. Puedes agregar archivos individuales o todo de golpe.",
+        "common_pitfalls": "Olvidar hacer `git add` después de modificar un archivo y antes de hacer commit.",
+        "flags": [
+          {
+            "flag": ".",
+            "description": "Agrega todos los archivos nuevos y modificados en la carpeta actual y subcarpetas."
+          },
+          {
+            "flag": "-p",
+            "description": "Modo interactivo (patch). Te pregunta trozo por trozo (hunk) si quieres agregarlo. Ideal para commits limpios."
+          },
+          {
+            "flag": "-u",
+            "description": "Solo agrega archivos modificados y eliminados, pero ignora los archivos nuevos (untracked)."
+          }
+        ],
+        "examples": [
+          "git add archivo.txt",
+          "git add .",
+          "git add -p"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Prepares your changes for the next commit, moving them from the working directory to the staging area. Git will only save in the history the files you have 'added' with this command.",
+        "deep_explanation": "`git add` does not save changes to history, it only prepares them ('takes the photo' before saving it to the album). Git will only save in the commit what you have added with this command. You can add individual files or everything at once.",
+        "common_pitfalls": "Forgetting to run `git add` after modifying a file and before committing.",
+        "flags": [
+          {
+            "flag": ".",
+            "description": "Adds all new and modified files in the current folder and subfolders."
+          },
+          {
+            "flag": "-p",
+            "description": "Interactive (patch) mode. Asks hunk by hunk whether you want to add it. Ideal for clean commits."
+          },
+          {
+            "flag": "-u",
+            "description": "Adds only modified and deleted files, but ignores new (untracked) files."
+          }
+        ],
+        "examples": [
+          "git add file.txt",
+          "git add .",
+          "git add -p"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git commit",
+    "tags": [
+      "guardar",
+      "salvar",
+      "mensaje",
+      "punto"
+    ],
+    "flags": [
+      {
+        "flag": "-m 'mensaje'",
+        "description": "Permite escribir el mensaje directamente en la línea de comandos."
+      },
+      {
+        "flag": "-a",
+        "description": "Combina `git add` (para archivos trackeados) y `git commit`. ¡Ojo! No incluye archivos nuevos (Untracked)."
+      },
+      {
+        "flag": "--amend",
+        "description": "Modifica el commit ANTERIOR. Útil si te equivocaste en el mensaje o olvidaste agregar un archivo."
+      }
+    ],
+    "examples": [
+      "git commit -m 'Corregir error de login'",
+      "git commit -am 'Cambios rápidos'"
+    ],
+    "category": "Guardar Historial",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Guarda los cambios que has preparado (staged) en el historial del repositorio de forma permanente, creando un nuevo punto de control con un mensaje descriptivo.",
+        "deep_explanation": "Crea un objeto 'commit' que contiene:\n1. Una referencia al estado de los archivos (snapshot).\n2. El autor y fecha.\n3. Un mensaje explicativo.\n4. El ID del commit padre (de dónde viene).\nCada commit es un punto de control al que puedes volver.",
+        "common_pitfalls": "Usar mensajes vagos como 'arreglos' o 'update'. Usar `--amend` en commits que ya fueron subidos (push) a un repositorio compartido.",
+        "flags": [
+          {
+            "flag": "-m 'mensaje'",
+            "description": "Permite escribir el mensaje directamente en la línea de comandos."
+          },
+          {
+            "flag": "-a",
+            "description": "Combina `git add` (para archivos trackeados) y `git commit`. ¡Ojo! No incluye archivos nuevos (Untracked)."
+          },
+          {
+            "flag": "--amend",
+            "description": "Modifica el commit ANTERIOR. Útil si te equivocaste en el mensaje o olvidaste agregar un archivo."
+          }
+        ],
+        "examples": [
+          "git commit -m 'Corregir error de login'",
+          "git commit -am 'Cambios rápidos'"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Saves the changes you have prepared (staged) to the repository history permanently, creating a new checkpoint with a descriptive message.",
+        "deep_explanation": "Creates a 'commit' object containing:\n1. A reference to the state of the files (snapshot).\n2. The author and date.\n3. An explanatory message.\n4. The parent commit ID (where it comes from).\nEach commit is a checkpoint you can return to.",
+        "common_pitfalls": "Using vague messages like 'fixes' or 'update'. Using `--amend` on commits that have already been pushed to a shared repository.",
+        "flags": [
+          {
+            "flag": "-m 'message'",
+            "description": "Allows writing the message directly on the command line."
+          },
+          {
+            "flag": "-a",
+            "description": "Combines `git add` (for tracked files) and `git commit`. Note: does not include new (untracked) files."
+          },
+          {
+            "flag": "--amend",
+            "description": "Modifies the PREVIOUS commit. Useful if you made a mistake in the message or forgot to add a file."
+          }
+        ],
+        "examples": [
+          "git commit -m 'Fix login bug'",
+          "git commit -am 'Quick changes'"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git push",
+    "tags": [
+      "subir",
+      "enviar",
+      "remoto",
+      "upload"
+    ],
+    "flags": [
+      {
+        "flag": "-u origin <rama>",
+        "description": "Establece la conexión (upstream) entre tu rama local y la remota. Necesario la primera vez."
+      },
+      {
+        "flag": "--force",
+        "description": "Sobrescribe el historial remoto con el tuyo. PELIGROSO. Puede borrar el trabajo de otros."
+      },
+      {
+        "flag": "--force-with-lease",
+        "description": "Una versión más segura de force. Solo fuerza si nadie más ha actualizado la rama remota."
+      }
+    ],
+    "examples": [
+      "git push origin main",
+      "git push -u origin feature-login"
+    ],
+    "category": "Sincronización",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Sube tus commits locales al repositorio remoto (GitHub, GitLab), sincronizando tu trabajo con el servidor y haciéndolo visible para tu equipo.",
+        "deep_explanation": "`git push` actualiza la rama remota con tus cambios locales. Solo funciona si tu historial local es descendiente directo del remoto. Si alguien más subió cambios mientras tú trabajabas, Git rechazará el push y te pedirá hacer `pull` o `merge` primero.",
+        "common_pitfalls": "Recibir el error 'non-fast-forward' y forzar el push sin entender que estás borrando cambios de compañeros.",
+        "flags": [
+          {
+            "flag": "-u origin <rama>",
+            "description": "Establece la conexión (upstream) entre tu rama local y la remota. Necesario la primera vez."
+          },
+          {
+            "flag": "--force",
+            "description": "Sobrescribe el historial remoto con el tuyo. PELIGROSO. Puede borrar el trabajo de otros."
+          },
+          {
+            "flag": "--force-with-lease",
+            "description": "Una versión más segura de force. Solo fuerza si nadie más ha actualizado la rama remota."
+          }
+        ],
+        "examples": [
+          "git push origin main",
+          "git push -u origin feature-login"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Uploads your local commits to the remote repository (GitHub, GitLab), syncing your work with the server and making it visible to your team.",
+        "deep_explanation": "`git push` updates the remote branch with your local changes. It only works if your local history is a direct descendant of the remote. If someone else pushed changes while you were working, Git will reject the push and ask you to `pull` or `merge` first.",
+        "common_pitfalls": "Receiving the 'non-fast-forward' error and forcing the push without understanding that you are deleting colleagues' changes.",
+        "flags": [
+          {
+            "flag": "-u origin <branch>",
+            "description": "Sets the upstream connection between your local branch and the remote. Necessary the first time."
+          },
+          {
+            "flag": "--force",
+            "description": "Overwrites the remote history with yours. DANGEROUS. Can delete others' work."
+          },
+          {
+            "flag": "--force-with-lease",
+            "description": "A safer version of force. Only forces if no one else has updated the remote branch."
+          }
+        ],
+        "examples": [
+          "git push origin main",
+          "git push -u origin feature-login"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git pull",
+    "tags": [
+      "bajar",
+      "actualizar",
+      "traer",
+      "download"
+    ],
+    "flags": [
+      {
+        "flag": "--rebase",
+        "description": "En lugar de crear un commit de mezcla (merge), reaplica tus cambios ENCIMA de los cambios que traes. Mantiene la historia lineal."
+      },
+      {
+        "flag": "--ff-only",
+        "description": "Solo hace el pull si se puede hacer sin crear un commit de merge (fast-forward)."
+      }
+    ],
+    "examples": [
+      "git pull origin main",
+      "git pull --rebase"
+    ],
+    "category": "Sincronización",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Descarga los cambios más recientes del repositorio remoto y los fusiona automáticamente con tu rama local. Equivale a hacer `fetch` + `merge` en un solo paso.",
+        "deep_explanation": "`git pull` es en realidad una combinación de dos comandos: `git fetch` (descargar datos) + `git merge` (fusionar datos). Es la forma estándar de actualizar tu código con el de tus compañeros.",
+        "common_pitfalls": "Tener conflictos al hacer pull y entrar en pánico. Git pausa el proceso para que arregles el conflicto manualmente.",
+        "flags": [
+          {
+            "flag": "--rebase",
+            "description": "En lugar de crear un commit de mezcla (merge), reaplica tus cambios ENCIMA de los cambios que traes. Mantiene la historia lineal."
+          },
+          {
+            "flag": "--ff-only",
+            "description": "Solo hace el pull si se puede hacer sin crear un commit de merge (fast-forward)."
+          }
+        ],
+        "examples": [
+          "git pull origin main",
+          "git pull --rebase"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Downloads the latest changes from the remote repository and automatically merges them into your local branch. Equivalent to doing `fetch` + `merge` in a single step.",
+        "deep_explanation": "`git pull` is actually a combination of two commands: `git fetch` (download data) + `git merge` (merge data). It is the standard way to update your code with that of your colleagues.",
+        "common_pitfalls": "Having conflicts when pulling and panicking. Git pauses the process for you to fix the conflict manually.",
+        "flags": [
+          {
+            "flag": "--rebase",
+            "description": "Instead of creating a merge commit, reapplies your changes ON TOP of the changes you pull. Keeps history linear."
+          },
+          {
+            "flag": "--ff-only",
+            "description": "Only performs the pull if it can be done without creating a merge commit (fast-forward)."
+          }
+        ],
+        "examples": [
+          "git pull origin main",
+          "git pull --rebase"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git branch",
+    "tags": [
+      "ramas",
+      "listar",
+      "crear",
+      "borrar"
+    ],
+    "flags": [
+      {
+        "flag": "<nombre>",
+        "description": "Crea una nueva rama, pero NO te cambia a ella."
+      },
+      {
+        "flag": "-d <nombre>",
+        "description": "Elimina una rama (seguro: solo si ya está fusionada)."
+      },
+      {
+        "flag": "-D <nombre>",
+        "description": "Fuerza la eliminación de una rama (incluso si tiene cambios sin guardar)."
+      },
+      {
+        "flag": "-a",
+        "description": "Lista todas las ramas, locales y remotas."
+      }
+    ],
+    "examples": [
+      "git branch nueva-funcionalidad",
+      "git branch -d feature-antigua"
+    ],
+    "category": "Ramas y Fusiones",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Herramienta principal para gestionar líneas de desarrollo paralelas. Te permite listar, crear o eliminar ramas para trabajar en nuevas funcionalidades sin romper el código principal.",
+        "deep_explanation": "Las ramas en Git son simplemente apuntadores móviles a commits. `git branch` gestiona estos apuntadores. Trabajar en ramas evita que rompas el código principal (`main`) mientras experimentas.",
+        "common_pitfalls": "Crear una rama y seguir trabajando en 'main' porque olvidaste hacer `checkout` o `switch`.",
+        "flags": [
+          {
+            "flag": "<nombre>",
+            "description": "Crea una nueva rama, pero NO te cambia a ella."
+          },
+          {
+            "flag": "-d <nombre>",
+            "description": "Elimina una rama (seguro: solo si ya está fusionada)."
+          },
+          {
+            "flag": "-D <nombre>",
+            "description": "Fuerza la eliminación de una rama (incluso si tiene cambios sin guardar)."
+          },
+          {
+            "flag": "-a",
+            "description": "Lista todas las ramas, locales y remotas."
+          }
+        ],
+        "examples": [
+          "git branch nueva-funcionalidad",
+          "git branch -d feature-antigua"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Main tool for managing parallel lines of development. Allows you to list, create, or delete branches to work on new features without breaking the main code.",
+        "deep_explanation": "Branches in Git are simply movable pointers to commits. `git branch` manages these pointers. Working in branches prevents you from breaking the main code (`main`) while experimenting.",
+        "common_pitfalls": "Creating a branch and continuing to work on 'main' because you forgot to `checkout` or `switch`.",
+        "flags": [
+          {
+            "flag": "<name>",
+            "description": "Creates a new branch, but does NOT switch to it."
+          },
+          {
+            "flag": "-d <name>",
+            "description": "Deletes a branch (safe: only if already merged)."
+          },
+          {
+            "flag": "-D <name>",
+            "description": "Force-deletes a branch (even if it has unmerged changes)."
+          },
+          {
+            "flag": "-a",
+            "description": "Lists all branches, local and remote."
+          }
+        ],
+        "examples": [
+          "git branch new-feature",
+          "git branch -d old-feature"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git checkout / git switch",
+    "tags": [
+      "cambiar",
+      "moverse",
+      "saltar",
+      "switch"
+    ],
+    "flags": [
+      {
+        "flag": "-b <nombre>",
+        "description": "(Checkout) Crea una rama y te cambia a ella en un solo paso."
+      },
+      {
+        "flag": "-c <nombre>",
+        "description": "(Switch) Crea una rama y te cambia a ella (equivalente moderno a checkout -b)."
+      },
+      {
+        "flag": "-",
+        "description": "Vuelve a la rama anterior (como Alt+Tab en ramas)."
+      }
+    ],
+    "examples": [
+      "git switch main",
+      "git checkout -b feature-rapida"
+    ],
+    "category": "Ramas y Fusiones",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Mueve tu directorio de trabajo a otra rama o commit específico. En versiones modernas, `git switch` es el comando recomendado para cambiar de rama.",
+        "deep_explanation": "Tradicionalmente se usaba `checkout`. En versiones modernas (Git 2.23+), se recomienda `switch` para cambiar de rama y `restore` para deshacer cambios en archivos, para evitar la confusión que generaba `checkout` al hacer demasiadas cosas.",
+        "common_pitfalls": "Entrar en estado 'Detached HEAD' al hacer checkout a un commit específico en lugar de una rama, y luego perder los commits nuevos que hagas ahí.",
+        "flags": [
+          {
+            "flag": "-b <nombre>",
+            "description": "(Checkout) Crea una rama y te cambia a ella en un solo paso."
+          },
+          {
+            "flag": "-c <nombre>",
+            "description": "(Switch) Crea una rama y te cambia a ella (equivalente moderno a checkout -b)."
+          },
+          {
+            "flag": "-",
+            "description": "Vuelve a la rama anterior (como Alt+Tab en ramas)."
+          }
+        ],
+        "examples": [
+          "git switch main",
+          "git checkout -b feature-rapida"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Moves your working directory to another branch or specific commit. In modern versions, `git switch` is the recommended command to change branches.",
+        "deep_explanation": "Traditionally `checkout` was used. In modern versions (Git 2.23+), `switch` is recommended for changing branches and `restore` for undoing changes to files, to avoid the confusion `checkout` caused by doing too many things.",
+        "common_pitfalls": "Entering 'Detached HEAD' state when checking out a specific commit instead of a branch, and then losing any new commits you make there.",
+        "flags": [
+          {
+            "flag": "-b <name>",
+            "description": "(Checkout) Creates a branch and switches to it in a single step."
+          },
+          {
+            "flag": "-c <name>",
+            "description": "(Switch) Creates a branch and switches to it (modern equivalent to checkout -b)."
+          },
+          {
+            "flag": "-",
+            "description": "Switches back to the previous branch (like Alt+Tab for branches)."
+          }
+        ],
+        "examples": [
+          "git switch main",
+          "git checkout -b quick-feature"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git log",
+    "tags": [
+      "historia",
+      "ver",
+      "commits",
+      "pasado"
+    ],
+    "flags": [
+      {
+        "flag": "--oneline",
+        "description": "Muestra cada commit en una sola línea (Hash corto + Mensaje)."
+      },
+      {
+        "flag": "--graph",
+        "description": "Dibuja un gráfico ASCII a la izquierda mostrando las ramificaciones y uniones."
+      },
+      {
+        "flag": "-p",
+        "description": "Muestra el 'patch' (las diferencias exactas de código) de cada commit."
+      },
+      {
+        "flag": "--stat",
+        "description": "Muestra estadísticas resumidas (qué archivos cambiaron y cuántas líneas)."
+      }
+    ],
+    "examples": [
+      "git log --oneline --graph --all",
+      "git log -p indice.html"
+    ],
+    "category": "Historial",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Muestra la historia completa de commits del proyecto: quién hizo qué, cuándo y por qué. Es tu ventana al pasado del código.",
+        "deep_explanation": "Te permite navegar por la historia del proyecto. Por defecto muestra el hash (ID), autor, fecha y mensaje. Es esencial para auditoría y entender por qué ocurrió un cambio.",
+        "common_pitfalls": "Quedarse atrapado en la vista del log. (Presiona 'q' para salir).",
+        "flags": [
+          {
+            "flag": "--oneline",
+            "description": "Muestra cada commit en una sola línea (Hash corto + Mensaje)."
+          },
+          {
+            "flag": "--graph",
+            "description": "Dibuja un gráfico ASCII a la izquierda mostrando las ramificaciones y uniones."
+          },
+          {
+            "flag": "-p",
+            "description": "Muestra el 'patch' (las diferencias exactas de código) de cada commit."
+          },
+          {
+            "flag": "--stat",
+            "description": "Muestra estadísticas resumidas (qué archivos cambiaron y cuántas líneas)."
+          }
+        ],
+        "examples": [
+          "git log --oneline --graph --all",
+          "git log -p indice.html"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Shows the complete commit history of the project: who did what, when, and why. It is your window into the code's past.",
+        "deep_explanation": "Allows you to navigate the project history. By default, it shows the hash (ID), author, date, and message. It is essential for auditing and understanding why a change occurred.",
+        "common_pitfalls": "Getting stuck in the log view. (Press 'q' to exit).",
+        "flags": [
+          {
+            "flag": "--oneline",
+            "description": "Shows each commit on a single line (short hash + message)."
+          },
+          {
+            "flag": "--graph",
+            "description": "Draws an ASCII graph on the left showing branching and merges."
+          },
+          {
+            "flag": "-p",
+            "description": "Shows the patch (the exact code differences) for each commit."
+          },
+          {
+            "flag": "--stat",
+            "description": "Shows summarized statistics (which files changed and how many lines)."
+          }
+        ],
+        "examples": [
+          "git log --oneline --graph --all",
+          "git log -p index.html"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git stash",
+    "tags": [
+      "guardar temporal",
+      "esconder",
+      "limpiar",
+      "pausa"
+    ],
+    "flags": [
+      {
+        "flag": "pop",
+        "description": "Aplica el último estado guardado y lo borra de la lista temporal."
+      },
+      {
+        "flag": "list",
+        "description": "Muestra todos los cambios guardados temporalmente."
+      },
+      {
+        "flag": "apply",
+        "description": "Aplica el cambio pero lo mantiene en la lista (por si quieres aplicarlo en varias ramas)."
+      }
+    ],
+    "examples": [
+      "git stash",
+      "git stash pop"
+    ],
+    "category": "Utilidades",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Guarda temporalmente tus cambios sin hacer commit, limpiando el directorio de trabajo. Perfecto cuando necesitas cambiar de rama urgentemente pero tu trabajo está a medias.",
+        "deep_explanation": "Útil cuando tienes trabajo a medias pero necesitas cambiar de rama urgentemente. `stash` guarda el estado sucio en una pila y te deja el directorio limpio (como en el último commit). Luego puedes recuperarlo.",
+        "common_pitfalls": "Hacer stash, olvidarse de él, y luego preguntarse dónde están los cambios del día anterior.",
+        "flags": [
+          {
+            "flag": "pop",
+            "description": "Aplica el último estado guardado y lo borra de la lista temporal."
+          },
+          {
+            "flag": "list",
+            "description": "Muestra todos los cambios guardados temporalmente."
+          },
+          {
+            "flag": "apply",
+            "description": "Aplica el cambio pero lo mantiene en la lista (por si quieres aplicarlo en varias ramas)."
+          }
+        ],
+        "examples": [
+          "git stash",
+          "git stash pop"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Temporarily saves your changes without committing, cleaning the working directory. Perfect when you need to switch branches urgently but your work is half-done.",
+        "deep_explanation": "Useful when you have half-done work but need to switch branches urgently. `stash` saves the dirty state onto a stack and leaves you with a clean directory (as in the last commit). You can then retrieve it.",
+        "common_pitfalls": "Stashing, forgetting about it, and then wondering where yesterday's changes are.",
+        "flags": [
+          {
+            "flag": "pop",
+            "description": "Applies the last saved state and removes it from the temporary list."
+          },
+          {
+            "flag": "list",
+            "description": "Shows all temporarily saved changes."
+          },
+          {
+            "flag": "apply",
+            "description": "Applies the change but keeps it in the list (in case you want to apply it in several branches)."
+          }
+        ],
+        "examples": [
+          "git stash",
+          "git stash pop"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git show",
+    "tags": [
+      "ver commit",
+      "detalle",
+      "inspeccionar",
+      "que paso"
+    ],
+    "flags": [
+      {
+        "flag": "--stat",
+        "description": "Muestra un resumen de archivos modificados en lugar del código completo."
+      },
+      {
+        "flag": "<commit-id>:<archivo>",
+        "description": "Muestra el contenido de un archivo tal como estaba en ese commit específico."
+      }
+    ],
+    "examples": [
+      "git show (ver último commit)",
+      "git show a1b2c3d",
+      "git show HEAD:index.html"
+    ],
+    "category": "Inspección",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Muestra información detallada de un commit específico: autor, fecha, mensaje Y las líneas exactas de código que cambiaron. Es como un zoom microscópico a un punto de la historia.",
+        "deep_explanation": "Mientras que `git log` te da la lista, `git show` es el microscopio. Si le das un ID de commit, te muestra:\n1. El autor y fecha.\n2. El mensaje completo.\n3. El DIFF exacto (qué líneas cambiaron) en ese commit.\nSi no le das argumentos, muestra el último commit (HEAD).",
+        "common_pitfalls": "Confundirlo con `git log`. Log es el historial, Show es el detalle.",
+        "flags": [
+          {
+            "flag": "--stat",
+            "description": "Muestra un resumen de archivos modificados en lugar del código completo."
+          },
+          {
+            "flag": "<commit-id>:<archivo>",
+            "description": "Muestra el contenido de un archivo tal como estaba en ese commit específico."
+          }
+        ],
+        "examples": [
+          "git show (ver último commit)",
+          "git show a1b2c3d",
+          "git show HEAD:index.html"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Shows detailed information of a specific commit: author, date, message AND the exact lines of code that changed. It's like a microscopic zoom into a point in history.",
+        "deep_explanation": "While `git log` gives you the list, `git show` is the microscope. If you give it a commit ID, it shows you:\n1. The author and date.\n2. The full message.\n3. The exact DIFF (what lines changed) in that commit.\nIf you don't give it arguments, it shows the last commit (HEAD).",
+        "common_pitfalls": "Confusing it with `git log`. Log is the history, Show is the detail.",
+        "flags": [
+          {
+            "flag": "--stat",
+            "description": "Shows a summary of modified files instead of the full code."
+          },
+          {
+            "flag": "<commit-id>:<file>",
+            "description": "Shows the content of a file as it was in that specific commit."
+          }
+        ],
+        "examples": [
+          "git show (show last commit)",
+          "git show a1b2c3d",
+          "git show HEAD:index.html"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git mv",
+    "tags": [
+      "mover",
+      "renombrar",
+      "cambiar nombre",
+      "rename"
+    ],
+    "flags": [
+      {
+        "flag": "-f",
+        "description": "Fuerza el renombrado incluso si el destino ya existe (lo sobrescribe)."
+      }
+    ],
+    "examples": [
+      "git mv archivo_viejo.txt archivo_nuevo.txt",
+      "git mv archivo.txt carpeta/"
+    ],
+    "category": "Gestión de Archivos",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Renombra o mueve archivos avisándole a Git explícitamente del cambio, preservando el historial. Más limpio que borrar y crear manualmente.",
+        "deep_explanation": "Si renombras un archivo desde tu explorador de archivos, Git ve dos cosas: 1. Un archivo borrado. 2. Un archivo nuevo. Tienes que hacer `add` y `rm` manualmente. `git mv` hace todo esto por ti en un solo paso y mantiene el historial del archivo intacto.",
+        "common_pitfalls": "Renombrar carpetas mayúsculas a minúsculas en Windows/Mac (sistemas case-insensitive) sin usar `git mv`, lo cual a veces Git no detecta.",
+        "flags": [
+          {
+            "flag": "-f",
+            "description": "Fuerza el renombrado incluso si el destino ya existe (lo sobrescribe)."
+          }
+        ],
+        "examples": [
+          "git mv archivo_viejo.txt archivo_nuevo.txt",
+          "git mv archivo.txt carpeta/"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Renames or moves files explicitly notifying Git of the change, preserving history. Cleaner than deleting and creating manually.",
+        "deep_explanation": "If you rename a file from your file explorer, Git sees two things: 1. A deleted file. 2. A new file. You have to do `add` and `rm` manually. `git mv` does all this for you in a single step and keeps the file history intact.",
+        "common_pitfalls": "Renaming folders from uppercase to lowercase on Windows/Mac (case-insensitive systems) without using `git mv`, which Git sometimes doesn't detect.",
+        "flags": [
+          {
+            "flag": "-f",
+            "description": "Forces the rename even if the destination already exists (overwrites it)."
+          }
+        ],
+        "examples": [
+          "git mv old_file.txt new_file.txt",
+          "git mv file.txt folder/"
+        ]
+      }
+    }
+  },
+  {
+    "command": "concept: HEAD",
+    "tags": [
+      "cabeza",
+      "puntero",
+      "ubicacion",
+      "donde estoy",
+      "detached",
+      "head"
+    ],
+    "flags": [],
+    "examples": [
+      "cat .git/HEAD (Muestra a dónde apunta realmente)",
+      "git checkout <rama> (Mueve el HEAD a la punta de esa rama)",
+      "git checkout <commit-sha> (Mueve el HEAD al pasado -> Detached)"
+    ],
+    "category": "Teoría Fundamental",
+    "i18n": {
+      "es": {
+        "simple_explanation": "HEAD es el puntero que indica dónde estás parado en el historial ahora mismo. Normalmente apunta a una rama, pero puede apuntar directamente a un commit (detached HEAD).",
+        "deep_explanation": "Imagina que el repositorio es un libro de historia y los commits son las páginas.\n\n1. **HEAD Normal:** Tu dedo (HEAD) señala a un marcador de libro (Rama) que está en la última página escrita. Si escribes una página nueva, el marcador avanza contigo.\n2. **Detached HEAD (Cabeza Separada):** Quitas el dedo del marcador y tocas una página antigua directamente (por ID). Si escribes aquí, ¡no hay marcador que guarde tu lugar! Si te mueves, perderás esa página nueva.",
+        "common_pitfalls": "Hacer commits en estado 'Detached HEAD', luego volver a 'main' y darse cuenta de que los commits que hiciste desaparecieron (porque ninguna rama apuntaba a ellos).",
+        "flags": [],
+        "examples": [
+          "cat .git/HEAD (Muestra a dónde apunta realmente)",
+          "git checkout <rama> (Mueve el HEAD a la punta de esa rama)",
+          "git checkout <commit-sha> (Mueve el HEAD al pasado -> Detached)"
+        ]
+      },
+      "en": {
+        "simple_explanation": "HEAD is the pointer that indicates where you are standing in the history right now. Normally it points to a branch, but it can point directly to a commit (detached HEAD).",
+        "deep_explanation": "Imagine the repository is a history book and commits are the pages.\n\n1. **Normal HEAD:** Your finger (HEAD) points to a bookmark (Branch) that is on the last written page. If you write a new page, the bookmark advances with you.\n2. **Detached HEAD:** You take your finger off the bookmark and touch an old page directly (by ID). If you write here, there is no bookmark to save your place! If you move, you will lose that new page.",
+        "common_pitfalls": "Making commits in 'Detached HEAD' state, then going back to 'main' and realizing the commits you made disappeared (because no branch pointed to them).",
+        "flags": [],
+        "examples": [
+          "cat .git/HEAD (shows what it actually points to)",
+          "git checkout <branch> (moves HEAD to the tip of that branch)",
+          "git checkout <commit-sha> (moves HEAD to the past -> Detached)"
+        ]
+      }
+    }
+  },
+  {
+    "command": "concept: Staging Area",
+    "tags": [
+      "index",
+      "area de preparacion",
+      "limbo",
+      "stage"
+    ],
+    "flags": [],
+    "examples": [
+      "(Concepto fundamental para entender git add)"
+    ],
+    "category": "Teoría",
+    "i18n": {
+      "es": {
+        "simple_explanation": "El 'limbo' entre tu directorio de trabajo y el repositorio. Aquí preparas exactamente qué cambios irán en el próximo commit, permitiéndote hacer commits selectivos y ordenados.",
+        "deep_explanation": "Git tiene 3 zonas: \n1. **Working Directory:** Tus archivos actuales.\n2. **Staging Area (Index):** La lista de compra de lo que vas a guardar.\n3. **Repository:** El historial guardado.\n`git add` mueve cosas del 1 al 2. `git commit` mueve cosas del 2 al 3. Esto te permite elegir exactamente qué guardar.",
+        "common_pitfalls": "Saltarse el concepto y usar siempre `git commit -a`, perdiendo la capacidad de hacer commits atómicos y ordenados.",
+        "flags": [],
+        "examples": [
+          "(Concepto fundamental para entender git add)"
+        ]
+      },
+      "en": {
+        "simple_explanation": "The 'limbo' between your working directory and the repository. Here you prepare exactly which changes will go into the next commit, allowing you to make selective and organized commits.",
+        "deep_explanation": "Git has 3 zones: \n1. **Working Directory:** Your current files.\n2. **Staging Area (Index):** The shopping list of what you are going to save.\n3. **Repository:** The saved history.\n`git add` moves things from 1 to 2. `git commit` moves things from 2 to 3. This allows you to choose exactly what to save.",
+        "common_pitfalls": "Skipping the concept and always using `git commit -a`, losing the ability to make atomic and organized commits.",
+        "flags": [],
+        "examples": [
+          "(Fundamental concept to understand git add)"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git tag",
+    "tags": [
+      "etiqueta",
+      "version",
+      "release",
+      "v1.0",
+      "marcar",
+      "punto fijo"
+    ],
+    "flags": [
+      {
+        "flag": "-a <v1.0> -m 'mensaje'",
+        "description": "Crea un tag anotado (con mensaje). Es el estándar profesional."
+      },
+      {
+        "flag": "-l",
+        "description": "Lista todas las etiquetas disponibles."
+      },
+      {
+        "flag": "-d <nombre>",
+        "description": "Elimina una etiqueta localmente."
+      }
+    ],
+    "examples": [
+      "git tag -a v1.0.0 -m 'Lanzamiento inicial'",
+      "git push origin --tags"
+    ],
+    "category": "Lanzamientos (Releases)",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Crea un marcador permanente en un commit específico del historial, generalmente usado para señalar versiones de lanzamiento (v1.0, v2.3). A diferencia de las ramas, los tags no se mueven.",
+        "deep_explanation": "A diferencia de las ramas (que se mueven), los tags son inmutables. Son como chinchetas en el mapa de la historia. Existen dos tipos:\n1. **Ligeros:** Solo un puntero a un commit (como una rama que no cambia).\n2. **Anotados:** Objetos completos con autor, fecha y mensaje (Recomendado para releases públicas).",
+        "common_pitfalls": "Hacer `git push` y sorprenderse de que los tags no subieron. Debes usar `git push --tags` explícitamente.",
+        "flags": [
+          {
+            "flag": "-a <v1.0> -m 'mensaje'",
+            "description": "Crea un tag anotado (con mensaje). Es el estándar profesional."
+          },
+          {
+            "flag": "-l",
+            "description": "Lista todas las etiquetas disponibles."
+          },
+          {
+            "flag": "-d <nombre>",
+            "description": "Elimina una etiqueta localmente."
+          }
+        ],
+        "examples": [
+          "git tag -a v1.0.0 -m 'Lanzamiento inicial'",
+          "git push origin --tags"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Creates a permanent marker on a specific commit in history, usually used to mark release versions (v1.0, v2.3). Unlike branches, tags do not move.",
+        "deep_explanation": "Unlike branches (which move), tags are immutable. They are like thumbtacks on the history map. There are two types:\n1. **Lightweight:** Just a pointer to a commit (like a branch that doesn't change).\n2. **Annotated:** Full objects with author, date, and message (Recommended for public releases).",
+        "common_pitfalls": "Doing `git push` and being surprised that tags didn't go up. You must use `git push --tags` explicitly.",
+        "flags": [
+          {
+            "flag": "-a <v1.0> -m 'message'",
+            "description": "Creates an annotated tag (with message). It is the professional standard."
+          },
+          {
+            "flag": "-l",
+            "description": "Lists all available tags."
+          },
+          {
+            "flag": "-d <name>",
+            "description": "Deletes a tag locally."
+          }
+        ],
+        "examples": [
+          "git tag -a v1.0.0 -m 'Initial release'",
+          "git push origin --tags"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git config",
+    "tags": [
+      "configurar",
+      "setup",
+      "usuario",
+      "email",
+      "alias",
+      "colores"
+    ],
+    "flags": [
+      {
+        "flag": "--global user.name 'Nombre'",
+        "description": "Define tu nombre para todos tus proyectos."
+      },
+      {
+        "flag": "--global alias.<atajo> <comando>",
+        "description": "Crea atajos. Ej: `git config --global alias.st status` permite escribir `git st`."
+      },
+      {
+        "flag": "--list",
+        "description": "Muestra toda tu configuración actual."
+      }
+    ],
+    "examples": [
+      "git config --global user.email 'yo@email.com'",
+      "git config --global alias.co checkout"
+    ],
+    "category": "Configuración",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Establece tus datos personales (nombre, email) y preferencias en Git. Esencial para que tus commits tengan autoría correcta y para personalizar el comportamiento de Git.",
+        "deep_explanation": "Git guarda configuración en tres niveles: Sistema, Global (Tu usuario) y Local (El proyecto actual). Lo más común es configurar tu nombre y correo para que tus commits tengan autoría correcta, y crear 'alias' para escribir menos.",
+        "common_pitfalls": "Configurar el email incorrecto y que tus contribuciones en GitHub no aparezcan en tu perfil.",
+        "flags": [
+          {
+            "flag": "--global user.name 'Nombre'",
+            "description": "Define tu nombre para todos tus proyectos."
+          },
+          {
+            "flag": "--global alias.<atajo> <comando>",
+            "description": "Crea atajos. Ej: `git config --global alias.st status` permite escribir `git st`."
+          },
+          {
+            "flag": "--list",
+            "description": "Muestra toda tu configuración actual."
+          }
+        ],
+        "examples": [
+          "git config --global user.email 'yo@email.com'",
+          "git config --global alias.co checkout"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Sets your personal data (name, email) and preferences in Git. Essential for your commits to have correct authorship and to customize Git behavior.",
+        "deep_explanation": "Git saves configuration at three levels: System, Global (Your user), and Local (The current project). The most common is to configure your name and email so your commits have correct authorship, and create 'aliases' to type less.",
+        "common_pitfalls": "Configuring the wrong email and your contributions on GitHub not appearing on your profile.",
+        "flags": [
+          {
+            "flag": "--global user.name 'Name'",
+            "description": "Defines your name for all your projects."
+          },
+          {
+            "flag": "--global alias.<shortcut> <command>",
+            "description": "Creates shortcuts. E.g.: `git config --global alias.st status` lets you type `git st`."
+          },
+          {
+            "flag": "--list",
+            "description": "Shows all your current configuration."
+          }
+        ],
+        "examples": [
+          "git config --global user.email 'me@email.com'",
+          "git config --global alias.co checkout"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git blame",
+    "tags": [
+      "culpar",
+      "quien",
+      "autor",
+      "linea",
+      "inspector"
+    ],
+    "flags": [
+      {
+        "flag": "-L <inicio>,<fin>",
+        "description": "Revisa solo un rango específico de líneas (ej: lineas 10 a 20)."
+      },
+      {
+        "flag": "-w",
+        "description": "Ignora cambios que solo fueron espacios en blanco (útil para ver quién cambió la lógica, no la indentación)."
+      }
+    ],
+    "examples": [
+      "git blame index.html",
+      "git blame -L 10,20 style.css"
+    ],
+    "category": "Auditoría y Depuración",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Herramienta de auditoría que muestra quién modificó cada línea de un archivo y en qué commit. Útil para entender el contexto histórico del código o encontrar al autor de un bug.",
+        "deep_explanation": "Es una herramienta forense. No se usa solo para 'culpar', sino para entender el contexto: ¿Por qué se añadió esta línea hace 3 años? Con `blame` obtienes el ID del commit y puedes leer el mensaje original de esa decisión.",
+        "common_pitfalls": "Usarlo para pelear con compañeros en lugar de para entender el código.",
+        "flags": [
+          {
+            "flag": "-L <inicio>,<fin>",
+            "description": "Revisa solo un rango específico de líneas (ej: lineas 10 a 20)."
+          },
+          {
+            "flag": "-w",
+            "description": "Ignora cambios que solo fueron espacios en blanco (útil para ver quién cambió la lógica, no la indentación)."
+          }
+        ],
+        "examples": [
+          "git blame index.html",
+          "git blame -L 10,20 style.css"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Audit tool that shows who modified each line of a file and in which commit. Useful for understanding the historical context of the code or finding the author of a bug.",
+        "deep_explanation": "It is a forensic tool. It is not used just to 'blame', but to understand the context: Why was this line added 3 years ago? With `blame` you get the commit ID and can read the original message of that decision.",
+        "common_pitfalls": "Using it to fight with colleagues instead of understanding the code.",
+        "flags": [
+          {
+            "flag": "-L <start>,<end>",
+            "description": "Reviews only a specific range of lines (e.g., lines 10 to 20)."
+          },
+          {
+            "flag": "-w",
+            "description": "Ignores changes that were only whitespace (useful to see who changed logic, not indentation)."
+          }
+        ],
+        "examples": [
+          "git blame index.html",
+          "git blame -L 10,20 style.css"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git restore",
+    "tags": [
+      "restaurar",
+      "deshacer cambios",
+      "descartar",
+      "recuperar archivo"
+    ],
+    "flags": [
+      {
+        "flag": "--staged",
+        "description": "Saca un archivo del Staging Area (Unstage), pero mantiene tus cambios en el archivo."
+      },
+      {
+        "flag": "<archivo>",
+        "description": "Descarta TOTALMENTE los cambios locales del archivo (irreversible)."
+      }
+    ],
+    "examples": [
+      "git restore archivo.txt (descarta cambios)",
+      "git restore --staged archivo.txt (unstage)"
+    ],
+    "category": "Gestión de Archivos (Moderno)",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Comando moderno para descartar cambios locales en archivos o sacarlos del área de staging. Reemplaza los usos de `git checkout` para gestión de archivos, siendo más claro y seguro.",
+        "deep_explanation": "Introducido en Git 2.23 para quitarle responsabilidad al comando `checkout`. Sirve para descartar cambios locales (volver al estado del último commit) o sacar archivos del Staging Area sin perder los cambios.",
+        "common_pitfalls": "Confundir `restore` (archivos) con `switch` (ramas) o `revert` (commits).",
+        "flags": [
+          {
+            "flag": "--staged",
+            "description": "Saca un archivo del Staging Area (Unstage), pero mantiene tus cambios en el archivo."
+          },
+          {
+            "flag": "<archivo>",
+            "description": "Descarta TOTALMENTE los cambios locales del archivo (irreversible)."
+          }
+        ],
+        "examples": [
+          "git restore archivo.txt (descarta cambios)",
+          "git restore --staged archivo.txt (unstage)"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Modern command to discard local changes in files or remove them from the staging area. Replaces uses of `git checkout` for file management, being clearer and safer.",
+        "deep_explanation": "Introduced in Git 2.23 to take responsibility away from the `checkout` command. Used to discard local changes (return to the state of the last commit) or remove files from the Staging Area without losing changes.",
+        "common_pitfalls": "Confusing `restore` (files) with `switch` (branches) or `revert` (commits).",
+        "flags": [
+          {
+            "flag": "--staged",
+            "description": "Removes a file from the Staging Area (Unstage), but keeps your changes in the file."
+          },
+          {
+            "flag": "<file>",
+            "description": "TOTALLY discards local changes to the file (irreversible)."
+          }
+        ],
+        "examples": [
+          "git restore file.txt (discard changes)",
+          "git restore --staged file.txt (unstage)"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git clean",
+    "tags": [
+      "limpiar",
+      "borrar untracked",
+      "basura"
+    ],
+    "flags": [
+      {
+        "flag": "-n",
+        "description": "(Dry Run) Te dice qué borraría PERO no lo borra. Úsalo siempre primero por seguridad."
+      },
+      {
+        "flag": "-f",
+        "description": "(Force) Ejecuta el borrado real. Es obligatorio ponerlo por seguridad."
+      },
+      {
+        "flag": "-d",
+        "description": "Elimina también directorios (carpetas) untracked, no solo archivos."
+      }
+    ],
+    "examples": [
+      "git clean -n (simulacro)",
+      "git clean -fd (borrar archivos y carpetas untracked)"
+    ],
+    "category": "Limpieza",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Borra archivos y carpetas nuevos que Git no está rastreando (archivos basura, temporales, builds). PELIGROSO: usa siempre -n primero para ver qué borraría.",
+        "deep_explanation": "`git reset --hard` limpia los archivos modificados, pero ignora los archivos nuevos que no has agregado. `git clean` se encarga de borrar esos archivos nuevos 'basura' (archivos temporales, logs generados, builds) que no están en el .gitignore.",
+        "common_pitfalls": "Ejecutar `git clean -f` sin `-n` y borrar archivos nuevos importantes que olvidaste hacer `git add`.",
+        "flags": [
+          {
+            "flag": "-n",
+            "description": "(Dry Run) Te dice qué borraría PERO no lo borra. Úsalo siempre primero por seguridad."
+          },
+          {
+            "flag": "-f",
+            "description": "(Force) Ejecuta el borrado real. Es obligatorio ponerlo por seguridad."
+          },
+          {
+            "flag": "-d",
+            "description": "Elimina también directorios (carpetas) untracked, no solo archivos."
+          }
+        ],
+        "examples": [
+          "git clean -n (simulacro)",
+          "git clean -fd (borrar archivos y carpetas untracked)"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Deletes new files and folders that Git is not tracking (junk files, temporary files, builds). DANGEROUS: always use -n first to see what it would delete.",
+        "deep_explanation": "`git reset --hard` cleans modified files, but ignores new files you haven't added. `git clean` takes care of deleting those new 'junk' files (temporary files, generated logs, builds) that are not in .gitignore.",
+        "common_pitfalls": "Running `git clean -f` without `-n` and deleting important new files you forgot to `git add`.",
+        "flags": [
+          {
+            "flag": "-n",
+            "description": "(Dry Run) Tells you what it would delete BUT does not delete it. Always use first for safety."
+          },
+          {
+            "flag": "-f",
+            "description": "(Force) Performs the actual deletion. Required for safety."
+          },
+          {
+            "flag": "-d",
+            "description": "Also deletes untracked directories (folders), not just files."
+          }
+        ],
+        "examples": [
+          "git clean -n (dry run)",
+          "git clean -fd (delete untracked files and folders)"
+        ]
+      }
+    }
+  },
+  {
+    "command": ".gitignore",
+    "tags": [
+      "ignorar",
+      "ocultar",
+      "excluir",
+      "node_modules",
+      "env"
+    ],
+    "flags": [],
+    "examples": [
+      "*.log (ignora todos los logs)",
+      "secret.txt (ignora archivo específico)",
+      "build/ (ignora carpeta entera)"
+    ],
+    "category": "Configuración",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Archivo de configuración donde especificas qué archivos o carpetas Git debe ignorar permanentemente (contraseñas, dependencias, archivos compilados). Vital para seguridad y eficiencia.",
+        "deep_explanation": "Cualquier archivo o carpeta que escribas aquí será invisible para `git status`. Es vital para no subir contraseñas (`.env`), carpetas de dependencias pesadas (`node_modules/`, `venv/`) o archivos compilados (`.exe`, `.o`).",
+        "common_pitfalls": "Agregar un archivo al `.gitignore` DESPUÉS de haberlo subido al repo. (Debes usar `git rm --cached` para que Git deje de seguirlo).",
+        "flags": [],
+        "examples": [
+          "*.log (ignora todos los logs)",
+          "secret.txt (ignora archivo específico)",
+          "build/ (ignora carpeta entera)"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Configuration file where you specify which files or folders Git should permanently ignore (passwords, dependencies, compiled files). Vital for security and efficiency.",
+        "deep_explanation": "Any file or folder you write here will be invisible to `git status`. It is vital not to upload passwords (`.env`), heavy dependency folders (`node_modules/`, `venv/`), or compiled files (`.exe`, `.o`).",
+        "common_pitfalls": "Adding a file to `.gitignore` AFTER having uploaded it to the repo. (You must use `git rm --cached` for Git to stop tracking it).",
+        "flags": [],
+        "examples": [
+          "*.log (ignore all logs)",
+          "secret.txt (ignore a specific file)",
+          "build/ (ignore entire folder)"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git bisect",
+    "tags": [
+      "debug",
+      "buscar error",
+      "bug",
+      "binario"
+    ],
+    "flags": [
+      {
+        "flag": "start",
+        "description": "Inicia el modo bisect."
+      },
+      {
+        "flag": "bad",
+        "description": "Marca el commit actual como roto."
+      },
+      {
+        "flag": "good <commit>",
+        "description": "Marca un commit antiguo como funcional."
+      }
+    ],
+    "examples": [
+      "git bisect start",
+      "git bisect bad",
+      "git bisect good v1.0"
+    ],
+    "category": "Depuración Avanzada",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Debugging automático: usa búsqueda binaria en tu historial para identificar rápidamente qué commit específico introdujo un bug, incluso con miles de commits.",
+        "deep_explanation": "Si sabes que el código funcionaba hace 50 commits pero ahora no, `bisect` te ayuda a encontrar al culpable. Le dices un commit 'bueno' y uno 'malo', y Git te va moviendo a la mitad automáticamente para que pruebes, reduciendo la búsqueda dramáticamente.",
+        "common_pitfalls": "Olvidar ejecutar `git bisect reset` al terminar, quedando atrapado en un commit antiguo.",
+        "flags": [
+          {
+            "flag": "start",
+            "description": "Inicia el modo bisect."
+          },
+          {
+            "flag": "bad",
+            "description": "Marca el commit actual como roto."
+          },
+          {
+            "flag": "good <commit>",
+            "description": "Marca un commit antiguo como funcional."
+          }
+        ],
+        "examples": [
+          "git bisect start",
+          "git bisect bad",
+          "git bisect good v1.0"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Automatic debugging: uses binary search in your history to quickly identify which specific commit introduced a bug, even with thousands of commits.",
+        "deep_explanation": "If you know the code worked 50 commits ago but now it doesn't, `bisect` helps you find the culprit. You tell it a 'good' commit and a 'bad' one, and Git automatically moves you to the middle for you to test, dramatically reducing the search.",
+        "common_pitfalls": "Forgetting to run `git bisect reset` when finished, getting stuck on an old commit.",
+        "flags": [
+          {
+            "flag": "start",
+            "description": "Starts bisect mode."
+          },
+          {
+            "flag": "bad",
+            "description": "Marks the current commit as broken."
+          },
+          {
+            "flag": "good <commit>",
+            "description": "Marks an older commit as working."
+          }
+        ],
+        "examples": [
+          "git bisect start",
+          "git bisect bad",
+          "git bisect good v1.0"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git reset",
+    "tags": [
+      "deshacer",
+      "borrar",
+      "atras",
+      "volver",
+      "resetear",
+      "soft",
+      "hard"
+    ],
+    "flags": [
+      {
+        "flag": "--soft",
+        "description": "Conserva tus cambios en el área de preparación (Staging). Ideal para reagrupar varios commits en uno."
+      },
+      {
+        "flag": "--mixed",
+        "description": "Conserva tus cambios pero los saca del Staging. Es la opción por defecto."
+      },
+      {
+        "flag": "--hard",
+        "description": "DESTRUCTIVO. Descarta todos los cambios locales y resetea todo al commit seleccionado."
+      }
+    ],
+    "examples": [
+      "git reset --soft HEAD~1 (deshacer último commit)",
+      "git reset --hard origin/main (igualar mi rama a la remota)"
+    ],
+    "category": "Deshacer y Reparar",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Retrocede en el historial moviendo HEAD y la rama actual a un commit anterior. Permite deshacer commits locales con diferentes niveles de conservación de tus cambios (--soft, --mixed, --hard).",
+        "deep_explanation": "`git reset` es una máquina del tiempo local. Mueve el puntero HEAD y la rama actual a un commit anterior. Tiene tres modos de peligro:\n1. **--soft**: Mueve el HEAD, pero deja tus cambios en 'Staging' (listos para commitear de nuevo).\n2. **--mixed** (default): Mueve el HEAD, saca los cambios de 'Staging' al 'Working Directory' (para que los edites).\n3. **--hard**: ELIMINA todo. Vuelve al estado exacto de ese commit. Lo que no se guardó, se pierde.",
+        "common_pitfalls": "Usar `git reset --hard` sin querer y borrar trabajo de todo el día que no habías guardado.",
+        "flags": [
+          {
+            "flag": "--soft",
+            "description": "Conserva tus cambios en el área de preparación (Staging). Ideal para reagrupar varios commits en uno."
+          },
+          {
+            "flag": "--mixed",
+            "description": "Conserva tus cambios pero los saca del Staging. Es la opción por defecto."
+          },
+          {
+            "flag": "--hard",
+            "description": "DESTRUCTIVO. Descarta todos los cambios locales y resetea todo al commit seleccionado."
+          }
+        ],
+        "examples": [
+          "git reset --soft HEAD~1 (deshacer último commit)",
+          "git reset --hard origin/main (igualar mi rama a la remota)"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Moves back in history by moving HEAD and the current branch to a previous commit. Allows undoing local commits with different levels of preservation of your changes (--soft, --mixed, --hard).",
+        "deep_explanation": "`git reset` is a local time machine. It moves the HEAD pointer and the current branch to a previous commit. It has three danger modes:\n1. **--soft**: Moves HEAD, but leaves your changes in 'Staging' (ready to commit again).\n2. **--mixed** (default): Moves HEAD, takes changes out of 'Staging' to the 'Working Directory' (for you to edit).\n3. **--hard**: DELETES everything. Returns to the exact state of that commit. What was not saved is lost.",
+        "common_pitfalls": "Accidentally using `git reset --hard` and deleting a whole day's work that you hadn't saved.",
+        "flags": [
+          {
+            "flag": "--soft",
+            "description": "Keeps your changes in the Staging Area. Ideal to regroup several commits into one."
+          },
+          {
+            "flag": "--mixed",
+            "description": "Keeps your changes but removes them from Staging. It is the default option."
+          },
+          {
+            "flag": "--hard",
+            "description": "DESTRUCTIVE. Discards all local changes and resets everything to the selected commit."
+          }
+        ],
+        "examples": [
+          "git reset --soft HEAD~1 (undo last commit)",
+          "git reset --hard origin/main (match my branch to the remote)"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git revert",
+    "tags": [
+      "invertir",
+      "deshacer",
+      "seguro",
+      "publico"
+    ],
+    "flags": [
+      {
+        "flag": "--no-edit",
+        "description": "Ejecuta la reversión sin abrir el editor de texto para el mensaje del commit."
+      },
+      {
+        "flag": "-n",
+        "description": "Aplica los cambios inversos en tu working directory pero no crea el commit automáticamente."
+      }
+    ],
+    "examples": [
+      "git revert HEAD (deshacer el último commit)",
+      "git revert a1b2c3d"
+    ],
+    "category": "Deshacer y Reparar",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Deshace un commit anterior de forma segura creando un nuevo commit con los cambios opuestos. Es la forma correcta de deshacer cambios compartidos (ya publicados con push).",
+        "deep_explanation": "A diferencia de `reset` (que borra historia), `revert` *agrega* historia. Crea un commit opuesto (si el commit A agregó una línea, el revert de A la borra). Es la forma **segura** de deshacer cambios en ramas compartidas (públicas) porque no reescribe el pasado.",
+        "common_pitfalls": "Confundirlo con `reset`. Si ya hiciste Push, usa `revert`. Si es local y privado, puedes usar `reset`.",
+        "flags": [
+          {
+            "flag": "--no-edit",
+            "description": "Ejecuta la reversión sin abrir el editor de texto para el mensaje del commit."
+          },
+          {
+            "flag": "-n",
+            "description": "Aplica los cambios inversos en tu working directory pero no crea el commit automáticamente."
+          }
+        ],
+        "examples": [
+          "git revert HEAD (deshacer el último commit)",
+          "git revert a1b2c3d"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Safely undoes a previous commit by creating a new commit with the opposite changes. It is the correct way to undo shared changes (already pushed).",
+        "deep_explanation": "Unlike `reset` (which deletes history), `revert` *adds* history. It creates an opposite commit (if commit A added a line, the revert of A deletes it). It is the **safe** way to undo changes in shared (public) branches because it does not rewrite the past.",
+        "common_pitfalls": "Confusing it with `reset`. If you already Pushed, use `revert`. If it is local and private, you can use `reset`.",
+        "flags": [
+          {
+            "flag": "--no-edit",
+            "description": "Runs the revert without opening the text editor for the commit message."
+          },
+          {
+            "flag": "-n",
+            "description": "Applies the inverse changes to your working directory but does not create the commit automatically."
+          }
+        ],
+        "examples": [
+          "git revert HEAD (undo the last commit)",
+          "git revert a1b2c3d"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git merge",
+    "tags": [
+      "fusionar",
+      "unir",
+      "mezclar",
+      "juntar"
+    ],
+    "flags": [
+      {
+        "flag": "--abort",
+        "description": "Si estás en medio de un conflicto y quieres cancelar todo, usa esto para volver a antes del merge."
+      },
+      {
+        "flag": "--squash",
+        "description": "Toma todos los commits de la rama a fusionar y los aplasta en UN solo cambio en tu rama actual (sin crear el commit de merge aún)."
+      }
+    ],
+    "examples": [
+      "git merge feature-login",
+      "git merge --abort"
+    ],
+    "category": "Ramas y Fusiones",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Integra los cambios de una rama en tu rama actual, creando un commit de fusión que combina ambas historias. Puede generar conflictos que deberás resolver manualmente.",
+        "deep_explanation": "Git busca la base común entre las dos ramas y crea un nuevo 'Merge Commit' que tiene dos padres. Si hay cambios en las mismas líneas de los mismos archivos, ocurrirá un **conflicto** que deberás resolver manualmente.",
+        "common_pitfalls": "Entrar en pánico con los conflictos (texto con `<<<<<<<`). Simplemente edita el archivo, elige qué código queda y haz commit.",
+        "flags": [
+          {
+            "flag": "--abort",
+            "description": "Si estás en medio de un conflicto y quieres cancelar todo, usa esto para volver a antes del merge."
+          },
+          {
+            "flag": "--squash",
+            "description": "Toma todos los commits de la rama a fusionar y los aplasta en UN solo cambio en tu rama actual (sin crear el commit de merge aún)."
+          }
+        ],
+        "examples": [
+          "git merge feature-login",
+          "git merge --abort"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Integrates changes from one branch into your current branch, creating a merge commit that combines both histories. It may generate conflicts that you will have to resolve manually.",
+        "deep_explanation": "Git looks for the common base between the two branches and creates a new 'Merge Commit' that has two parents. If there are changes on the same lines of the same files, a **conflict** will occur that you must resolve manually.",
+        "common_pitfalls": "Panicking with conflicts (text with `<<<<<<<`). Simply edit the file, choose which code stays, and commit.",
+        "flags": [
+          {
+            "flag": "--abort",
+            "description": "If you're in the middle of a conflict and want to cancel everything, use this to go back to before the merge."
+          },
+          {
+            "flag": "--squash",
+            "description": "Takes all commits from the branch to merge and squashes them into ONE change in your current branch (without creating the merge commit yet)."
+          }
+        ],
+        "examples": [
+          "git merge feature-login",
+          "git merge --abort"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git rebase",
+    "tags": [
+      "rebase",
+      "reorganizar",
+      "lineal",
+      "historia"
+    ],
+    "flags": [
+      {
+        "flag": "-i <commit>",
+        "description": "Modo interactivo. Te permite reordenar, fusionar (squash), editar o eliminar commits en una lista."
+      },
+      {
+        "flag": "--continue",
+        "description": "Se usa después de resolver conflictos durante un rebase para seguir con el siguiente commit."
+      }
+    ],
+    "examples": [
+      "git rebase main",
+      "git rebase -i HEAD~3 (editar los últimos 3 commits)"
+    ],
+    "category": "Ramas y Fusiones",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Reorganiza tu historial 'moviendo' tus commits para que aparezcan después de los commits de otra rama, creando una línea de tiempo lineal y limpia sin commits de merge.",
+        "deep_explanation": "Imagina que cortas tu rama y la pegas en la punta de `main`. `rebase` reescribe la historia para que parezca lineal, sin commits de 'merge'. Es ideal para mantener una historia limpia, pero **peligroso** en ramas compartidas.",
+        "common_pitfalls": "Hacer rebase de una rama pública (como `main`). Esto desincroniza a todos tus compañeros de equipo.",
+        "flags": [
+          {
+            "flag": "-i <commit>",
+            "description": "Modo interactivo. Te permite reordenar, fusionar (squash), editar o eliminar commits en una lista."
+          },
+          {
+            "flag": "--continue",
+            "description": "Se usa después de resolver conflictos durante un rebase para seguir con el siguiente commit."
+          }
+        ],
+        "examples": [
+          "git rebase main",
+          "git rebase -i HEAD~3 (editar los últimos 3 commits)"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Reorganizes your history by 'moving' your commits to appear after the commits of another branch, creating a linear and clean timeline without merge commits.",
+        "deep_explanation": "Imagine cutting your branch and pasting it onto the tip of `main`. `rebase` rewrites history to make it look linear, without 'merge' commits. It is ideal for maintaining a clean history, but **dangerous** on shared branches.",
+        "common_pitfalls": "Rebasing a public branch (like `main`). This desynchronizes all your teammates.",
+        "flags": [
+          {
+            "flag": "-i <commit>",
+            "description": "Interactive mode. Lets you reorder, squash, edit, or delete commits in a list."
+          },
+          {
+            "flag": "--continue",
+            "description": "Used after resolving conflicts during a rebase to continue with the next commit."
+          }
+        ],
+        "examples": [
+          "git rebase main",
+          "git rebase -i HEAD~3 (edit the last 3 commits)"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git remote",
+    "tags": [
+      "servidor",
+      "conexion",
+      "url",
+      "origin"
+    ],
+    "flags": [
+      {
+        "flag": "-v",
+        "description": "Muestra las URLs de lectura (fetch) y escritura (push) de cada remoto."
+      },
+      {
+        "flag": "add <nombre> <url>",
+        "description": "Añade una nueva conexión remota."
+      },
+      {
+        "flag": "set-url <nombre> <url>",
+        "description": "Cambia la dirección del remoto (útil si cambias de HTTPS a SSH)."
+      }
+    ],
+    "examples": [
+      "git remote -v",
+      "git remote add origin https://github.com/user/repo.git"
+    ],
+    "category": "Trabajo Remoto",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Gestiona las conexiones a repositorios remotos (como GitHub). Te permite ver, añadir o modificar las URLs de los servidores con los que sincronizas tu proyecto.",
+        "deep_explanation": "Vincula tu carpeta local con un servidor (GitHub/GitLab). 'origin' es simplemente el apodo estándar para la URL principal, pero puedes tener varios (ej: 'heroku', 'upstream').",
+        "common_pitfalls": "Intentar hacer push sin haber configurado un remoto primero.",
+        "flags": [
+          {
+            "flag": "-v",
+            "description": "Muestra las URLs de lectura (fetch) y escritura (push) de cada remoto."
+          },
+          {
+            "flag": "add <nombre> <url>",
+            "description": "Añade una nueva conexión remota."
+          },
+          {
+            "flag": "set-url <nombre> <url>",
+            "description": "Cambia la dirección del remoto (útil si cambias de HTTPS a SSH)."
+          }
+        ],
+        "examples": [
+          "git remote -v",
+          "git remote add origin https://github.com/user/repo.git"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Manages connections to remote repositories (like GitHub). Allows you to view, add, or modify the URLs of the servers you sync your project with.",
+        "deep_explanation": "Links your local folder to a server (GitHub/GitLab). 'origin' is simply the standard nickname for the main URL, but you can have several (e.g., 'heroku', 'upstream').",
+        "common_pitfalls": "Trying to push without having configured a remote first.",
+        "flags": [
+          {
+            "flag": "-v",
+            "description": "Shows the read (fetch) and write (push) URLs of each remote."
+          },
+          {
+            "flag": "add <name> <url>",
+            "description": "Adds a new remote connection."
+          },
+          {
+            "flag": "set-url <name> <url>",
+            "description": "Changes the remote address (useful if you switch from HTTPS to SSH)."
+          }
+        ],
+        "examples": [
+          "git remote -v",
+          "git remote add origin https://github.com/user/repo.git"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git fetch",
+    "tags": [
+      "descargar",
+      "buscar",
+      "actualizar info"
+    ],
+    "flags": [
+      {
+        "flag": "--all",
+        "description": "Descarga cambios de TODOS los remotos configurados."
+      },
+      {
+        "flag": "-p",
+        "description": "(Prune) Elimina referencias a ramas remotas que ya han sido borradas en el servidor."
+      }
+    ],
+    "examples": [
+      "git fetch origin"
+    ],
+    "category": "Trabajo Remoto",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Actualiza tu copia local con la información más reciente del repositorio remoto (commits, ramas) pero SIN modificar tus archivos de trabajo. Es como 'mirar' qué hay de nuevo.",
+        "deep_explanation": "Es seguro de usar en cualquier momento. Actualiza tu visión de lo que han hecho los demás (ramas `origin/main`), pero no toca tus archivos locales. Es el paso previo a `git merge` o `git pull`.",
+        "common_pitfalls": "Pensar que `git fetch` actualiza tu código. Solo actualiza la base de datos interna de Git.",
+        "flags": [
+          {
+            "flag": "--all",
+            "description": "Descarga cambios de TODOS los remotos configurados."
+          },
+          {
+            "flag": "-p",
+            "description": "(Prune) Elimina referencias a ramas remotas que ya han sido borradas en el servidor."
+          }
+        ],
+        "examples": [
+          "git fetch origin"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Updates your local copy with the latest information from the remote repository (commits, branches) but WITHOUT modifying your working files. It's like 'looking' at what's new.",
+        "deep_explanation": "It is safe to use at any time. It updates your view of what others have done (`origin/main` branches), but does not touch your local files. It is the step before `git merge` or `git pull`.",
+        "common_pitfalls": "Thinking that `git fetch` updates your code. It only updates Git's internal database.",
+        "flags": [
+          {
+            "flag": "--all",
+            "description": "Downloads changes from ALL configured remotes."
+          },
+          {
+            "flag": "-p",
+            "description": "(Prune) Removes references to remote branches that have already been deleted on the server."
+          }
+        ],
+        "examples": [
+          "git fetch origin"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git reflog",
+    "tags": [
+      "salvavidas",
+      "recuperar",
+      "perdido",
+      "log local"
+    ],
+    "flags": [],
+    "examples": [
+      "git reflog"
+    ],
+    "category": "Utilidades Avanzadas",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Tu salvavidas en Git. Registra cada movimiento de HEAD (cambios de rama, commits, resets) permitiéndote recuperar trabajo que creías perdido.",
+        "deep_explanation": "Es tu red de seguridad. Incluso si borraste un commit con `reset --hard` o borraste una rama, el commit sigue vivo en el `reflog` por unos días. Puedes encontrar el ID (SHA) ahí y recuperarlo.",
+        "common_pitfalls": "No conocer este comando y pensar que has perdido tu trabajo para siempre.",
+        "flags": [],
+        "examples": [
+          "git reflog"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Your lifesaver in Git. Records every movement of HEAD (branch switches, commits, resets) allowing you to recover work you thought was lost.",
+        "deep_explanation": "It is your safety net. Even if you deleted a commit with `reset --hard` or deleted a branch, the commit stays alive in the `reflog` for a few days. You can find the ID (SHA) there and recover it.",
+        "common_pitfalls": "Not knowing this command and thinking you have lost your work forever."
+      }
+    }
+  },
+  {
+    "command": "git diff",
+    "tags": [
+      "diferencias",
+      "cambios",
+      "comparar"
+    ],
+    "flags": [
+      {
+        "flag": "--staged",
+        "description": "Muestra cambios que ya hiciste `add` (listos para commit)."
+      },
+      {
+        "flag": "<rama1> <rama2>",
+        "description": "Compara dos ramas distintas."
+      },
+      {
+        "flag": "--name-only",
+        "description": "Solo muestra los nombres de los archivos que cambiaron, no el código."
+      }
+    ],
+    "examples": [
+      "git diff",
+      "git diff --staged",
+      "git diff main feature"
+    ],
+    "category": "Inspección",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Muestra las diferencias exactas línea por línea entre versiones de archivos. Esencial para revisar qué cambiaste antes de hacer commit o comparar ramas.",
+        "deep_explanation": "`git diff` es tu microscopio de código. Muestra exactamente qué líneas agregaste (+), borraste (-) o modificaste.\n\n**Uso típico:**\n1. **Sin argumentos:** Muestra diferencias entre tu directorio de trabajo y el staging area (lo que NO has hecho add).\n2. **`--staged`:** Muestra diferencias entre staging y el último commit (lo que vas a commitear).\n3. **`commit1 commit2`:** Compara dos commits específicos.\n4. **`rama1 rama2`:** Compara el estado final de dos ramas.\n\nEs VITAL ejecutarlo antes de cada commit para evitar guardar basura accidentalmente.",
+        "common_pitfalls": "Ejecutar `git diff` y no ver nada porque ya hiciste `git add` (debes usar `--staged`).",
+        "flags": [
+          {
+            "flag": "--staged",
+            "description": "Muestra cambios que ya hiciste `add` (listos para commit)."
+          },
+          {
+            "flag": "<rama1> <rama2>",
+            "description": "Compara dos ramas distintas."
+          },
+          {
+            "flag": "--name-only",
+            "description": "Solo muestra los nombres de los archivos que cambiaron, no el código."
+          }
+        ],
+        "examples": [
+          "git diff",
+          "git diff --staged",
+          "git diff main feature"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Shows exact line-by-line differences between file versions. Essential for reviewing what you changed before committing or comparing branches.",
+        "deep_explanation": "`git diff` is your code microscope. It shows exactly which lines you added (+), deleted (-), or modified.\n\n**Typical usage:**\n1. **No arguments:** Shows differences between your working directory and the staging area (what you have NOT added).\n2. **`--staged`:** Shows differences between staging and the last commit (what you are going to commit).\n3. **`commit1 commit2`:** Compares two specific commits.\n4. **`branch1 branch2`:** Compares the final state of two branches.\n\nIt is VITAL to run it before every commit to avoid accidentally saving garbage.",
+        "common_pitfalls": "Running `git diff` and seeing nothing because you already did `git add` (you must use `--staged`).",
+        "flags": [
+          {
+            "flag": "--staged",
+            "description": "Shows changes that you have already done `add` on (ready for commit)."
+          },
+          {
+            "flag": "<branch1> <branch2>",
+            "description": "Compares two different branches."
+          },
+          {
+            "flag": "--name-only",
+            "description": "Shows only the names of the files that changed, not the code."
+          }
+        ],
+        "examples": [
+          "git diff",
+          "git diff --staged",
+          "git diff main feature"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git rm",
+    "tags": [
+      "borrar",
+      "eliminar",
+      "quitar"
+    ],
+    "flags": [
+      {
+        "flag": "--cached",
+        "description": "Deja de rastrear el archivo (lo saca del repo) pero LO MANTIENE en tu disco duro. Útil para `.gitignore` mal configurados."
+      },
+      {
+        "flag": "-r",
+        "description": "Borrado recursivo (para carpetas)."
+      }
+    ],
+    "examples": [
+      "git rm archivo.txt",
+      "git rm --cached .env"
+    ],
+    "category": "Gestión de Archivos",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Borra archivos de tu proyecto Y le indica a Git que registre esa eliminación en el próximo commit. Más seguro que borrar manualmente con el explorador.",
+        "deep_explanation": "A diferencia de borrar el archivo con el explorador de archivos, `git rm` le avisa a Git explícitamente que el archivo debe dejar de existir en el próximo commit.",
+        "common_pitfalls": "Borrar archivos manualmente y luego tener que luchar con `git add` y `git rm` para sincronizar.",
+        "flags": [
+          {
+            "flag": "--cached",
+            "description": "Deja de rastrear el archivo (lo saca del repo) pero LO MANTIENE en tu disco duro. Útil para `.gitignore` mal configurados."
+          },
+          {
+            "flag": "-r",
+            "description": "Borrado recursivo (para carpetas)."
+          }
+        ],
+        "examples": [
+          "git rm archivo.txt",
+          "git rm --cached .env"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Deletes files from your project AND tells Git to record that deletion in the next commit. Safer than deleting manually with the explorer.",
+        "deep_explanation": "Unlike deleting the file with the file explorer, `git rm` explicitly notifies Git that the file should cease to exist in the next commit.",
+        "common_pitfalls": "Deleting files manually and then having to struggle with `git add` and `git rm` to synchronize.",
+        "flags": [
+          {
+            "flag": "--cached",
+            "description": "Stops tracking the file (removes it from the repo) but KEEPS it on your hard drive. Useful for misconfigured `.gitignore` files."
+          },
+          {
+            "flag": "-r",
+            "description": "Recursive delete (for folders)."
+          }
+        ],
+        "examples": [
+          "git rm file.txt",
+          "git rm --cached .env"
+        ]
+      }
+    }
+  },
+  {
+    "command": "git cherry-pick",
+    "tags": [
+      "copiar commit",
+      "seleccionar",
+      "traer especifico"
+    ],
+    "flags": [
+      {
+        "flag": "--no-commit",
+        "description": "Trae los cambios a tu working directory pero no crea el commit, permitiéndote modificarlos antes."
+      }
+    ],
+    "examples": [
+      "git cherry-pick a1b2c3d"
+    ],
+    "category": "Ramas y Fusiones",
+    "i18n": {
+      "es": {
+        "simple_explanation": "Copia un commit específico de otra rama a tu rama actual, creando un nuevo commit con los mismos cambios. Útil para traer correcciones puntuales sin hacer merge completo.",
+        "deep_explanation": "Útil cuando hiciste un fix en la rama equivocada. Copias solo ese commit (su 'patch') y lo pegas donde estás ahora. Crea un nuevo commit con un nuevo ID.",
+        "common_pitfalls": "Cherry-picking excesivo desordena la historia y duplica cambios. Úsalo con moderación.",
+        "flags": [
+          {
+            "flag": "--no-commit",
+            "description": "Trae los cambios a tu working directory pero no crea el commit, permitiéndote modificarlos antes."
+          }
+        ],
+        "examples": [
+          "git cherry-pick a1b2c3d"
+        ]
+      },
+      "en": {
+        "simple_explanation": "Copies a specific commit from another branch to your current branch, creating a new commit with the same changes. Useful for bringing in specific fixes without doing a full merge.",
+        "deep_explanation": "Useful when you made a fix on the wrong branch. You copy just that commit (its 'patch') and paste it where you are now. Creates a new commit with a new ID.",
+        "common_pitfalls": "Excessive cherry-picking clutters history and duplicates changes. Use it sparingly.",
+        "flags": [
+          {
+            "flag": "--no-commit",
+            "description": "Brings the changes to your working directory but does not create the commit, allowing you to modify them first."
+          }
+        ],
+        "examples": [
+          "git cherry-pick a1b2c3d"
+        ]
+      }
+    }
+  }
+]

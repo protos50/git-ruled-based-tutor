@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+.DS_Store
+.vscode/
+node_modules/
+.next/
+plan_desarollo.md

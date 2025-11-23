@@ -1,0 +1,170 @@
+{
+  "git status": {
+    "terminal": "$ git status\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nChanges not staged for commit:\n  (use \"git add <file>...\" to update what will be committed)\n  (use \"git restore <file>...\" to discard changes in working directory)\n        modified:   index.html\n\nno changes added to commit (use \"git add\" and/or \"git commit -a\")",
+    "analysis": {
+      "es": "Tienes un archivo modificado (`index.html`) pero no lo has agregado al área de preparación.",
+      "en": "You have a modified file (`index.html`) but you haven't added it to the staging area."
+    }
+  },
+  "git log --oneline": {
+    "terminal": "a1b2c3d (HEAD -> main, origin/main) Agregada navbar responsive\ne5f6g7h Corregido bug en login\ni9j0k1l Initial commit",
+    "analysis": {
+      "es": "Muestra los últimos 3 commits. HEAD apunta a `main`, que está sincronizada con `origin/main`.",
+      "en": "Shows the last 3 commits. HEAD points to `main`, which is synced with `origin/main`."
+    }
+  },
+  "git add": {
+    "terminal": "$ git status\nOn branch main\nChanges not staged for commit:\n  modified:   index.html\n\n$ git add .\n\n$ git status\nOn branch main\nChanges to be committed:\n  modified:   index.html",
+    "analysis": {
+      "es": "Has movido tus cambios del 'Working Directory' al 'Staging Area'.\nAhora tus archivos están listos para ser empaquetados en un commit. Es como poner los productos en la caja antes de pagar.",
+      "en": "You have moved your changes from the 'Working Directory' to the 'Staging Area'.\nNow your files are ready to be packaged in a commit. It's like putting products on the conveyor belt before paying."
+    }
+  },
+  "git commit": {
+    "terminal": "$ git commit -m \"Implementada nueva funcionalidad\"\n[main 8f9a2b1] Implementada nueva funcionalidad\n 2 files changed, 15 insertions(+), 3 deletions(-)\n create mode 100644 src/feature.js",
+    "analysis": {
+      "es": "¡Commit creado! Has guardado una foto permanente de tu proyecto.\nSe generó un hash único (`8f9a2b1`) y tu rama `main` avanzó un paso.",
+      "en": "Commit created! You have saved a permanent snapshot of your project.\nA unique hash (`8f9a2b1`) was generated and your `main` branch moved forward one step."
+    }
+  },
+  "git branch": {
+    "terminal": "$ git branch\n  feature-login\n* main\n  hotfix-header",
+    "analysis": {
+      "es": "El asterisco `*` indica que estás parado en la rama `main`.\nTienes otras dos ramas disponibles: `feature-login` y `hotfix-header`.",
+      "en": "The asterisk `*` indicates you are currently on the `main` branch.\nYou have two other branches available: `feature-login` and `hotfix-header`."
+    }
+  },
+  "git checkout": {
+    "terminal": "$ git switch {branch_name}\nSwitched to branch '{branch_name}'",
+    "analysis": {
+      "es": "Tu HEAD se ha movido. Ahora estás trabajando en la rama `{branch_name}`.\nLos archivos en tu carpeta han cambiado mágicamente para reflejar el estado de esa rama.",
+      "en": "Your HEAD has moved. You are now working on branch `{branch_name}`.\nThe files in your folder have magically changed to reflect the state of that branch."
+    }
+  },
+  "git merge": {
+    "terminal": "$ git merge feature-login\nUpdating a1b2c3d..e5f6g7h\nFast-forward\n index.html | 2 ++\n 1 file changed, 2 insertions(+)",
+    "analysis": {
+      "es": "Has fusionado cambios de otra rama en la actual.\nFue un 'Fast-forward', lo que significa que Git solo tuvo que mover el puntero hacia adelante sin crear un commit de mezcla nuevo.",
+      "en": "You have merged changes from another branch into the current one.\nIt was a 'Fast-forward', meaning Git only had to move the pointer forward without creating a new merge commit."
+    }
+  },
+  "git push": {
+    "terminal": "$ git push origin main\nEnumerating objects: 5, done.\nCounting objects: 100% (5/5), done.\nWriting objects: 100% (3/3), 280 bytes | 280.00 KiB/s, done.\nTotal 3 (delta 1), reused 0 (delta 0)\nTo https://github.com/usuario/repo.git\n   a1b2c3d..e5f6g7h  main -> main",
+    "analysis": {
+      "es": "Has subido tus commits locales al servidor remoto (GitHub/GitLab).\nAhora tus compañeros pueden ver y descargar tu trabajo.",
+      "en": "You have uploaded your local commits to the remote server (GitHub/GitLab).\nNow your teammates can see and download your work."
+    }
+  },
+  "git pull": {
+    "terminal": "$ git pull origin main\nremote: Enumerating objects: 7, done.\nUnpacking objects: 100% (7/7), done.\nFrom https://github.com/usuario/repo\n   a1b2c3d..9z8y7x6  main       -> origin/main\nUpdating a1b2c3d..9z8y7x6\nFast-forward\n README.md | 4 ++++\n 1 file changed, 4 insertions(+)",
+    "analysis": {
+      "es": "Has descargado los últimos cambios del servidor y los has mezclado en tu rama actual.\nEs básicamente un `git fetch` seguido de un `git merge`.",
+      "en": "You have downloaded the latest changes from the server and merged them into your current branch.\nIt is basically a `git fetch` followed by a `git merge`."
+    }
+  },
+  "git init": {
+    "terminal": "$ git init\nInitialized empty Git repository in /home/user/proyecto/.git/",
+    "analysis": {
+      "es": "¡Felicidades! Has transformado esta carpeta en un repositorio de Git.\nSe ha creado una carpeta oculta `.git` donde se guardará todo el historial.",
+      "en": "Congratulations! You have transformed this folder into a Git repository.\nA hidden `.git` folder has been created where all history will be stored."
+    }
+  },
+  "git clone": {
+    "terminal": "$ git clone https://github.com/usuario/repo.git\nCloning into 'repo'...\nremote: Enumerating objects: 100, done.\nremote: Total 100 (delta 10), reused 100 (delta 10), pack-reused 0\nReceiving objects: 100% (100/100), 1.20 MiB | 2.00 MiB/s, done.\nResolving deltas: 100% (10/10), done.",
+    "analysis": {
+      "es": "Has descargado una copia completa del proyecto desde el servidor.\nAhora tienes todo el historial en tu máquina y puedes trabajar sin internet.",
+      "en": "You have downloaded a complete copy of the project from the server.\nNow you have the entire history on your machine and can work offline."
+    }
+  },
+  "git diff": {
+    "terminal": "$ git diff\ndiff --git a/index.html b/index.html\nindex 83c2...92b1 100644\n--- a/index.html\n+++ b/index.html\n@@ -10,3 +10,4 @@\n  <body>\n    <h1>Hola Mundo</h1>\n+  <p>Nueva línea agregada</p>\n  </body>",
+    "analysis": {
+      "es": "Estás viendo exactamente qué cambió.\nLos signos `+` en verde son líneas agregadas. Si hubiera `-` en rojo, serían líneas borradas.",
+      "en": "You are seeing exactly what changed.\nThe `+` signs in green are added lines. If there were `-` in red, they would be deleted lines."
+    }
+  },
+  "git remote": {
+    "terminal": "$ git remote\norigin",
+    "analysis": {
+      "es": "Tienes un remoto configurado llamado 'origin'.\nGit solo muestra los nombres por defecto. Para ver las URLs (direcciones), intenta: `simular git remote -v`.",
+      "en": "You have a remote configured called 'origin'.\nGit only shows names by default. To see URLs (addresses), try: `simulate git remote -v`."
+    }
+  },
+  "git remote -v": {
+    "terminal": "$ git remote -v\norigin  https://github.com/usuario/repo.git (fetch)\norigin  https://github.com/usuario/repo.git (push)",
+    "analysis": {
+      "es": "Con la opción `-v` (verbose) puedes ver las URLs.\n'origin' es el nombre (alias) que usas en Git, y la URL es la dirección real del servidor.",
+      "en": "With the `-v` (verbose) option you can see the URLs.\n'origin' is the name (alias) you use in Git, and the URL is the actual server address."
+    }
+  },
+  "git reset": {
+    "terminal": "$ git log --oneline\na1b2c3d (HEAD -> main) Commit malo\ne5f6g7h Commit bueno\n\n$ git reset --mixed HEAD~1\nUnstaged changes after reset:\nM\tindex.html\n\n$ git log --oneline\ne5f6g7h (HEAD -> main) Commit bueno",
+    "analysis": {
+      "es": "Has retrocedido en el tiempo un paso.\nEl commit 'malo' ha desaparecido del historial, pero tus cambios siguen en tu carpeta de trabajo (gracias a `--mixed`).",
+      "en": "You have gone back in time one step.\nThe 'bad' commit has disappeared from history, but your changes remain in your working folder (thanks to `--mixed`)."
+    }
+  },
+  "git rebase": {
+    "terminal": "$ git rebase main\nFirst, rewinding head to replay your work on top of it...\nApplying: Feature login\nApplying: Fix css bug",
+    "analysis": {
+      "es": "Estás reescribiendo la historia.\nGit ha 'levantado' tus commits y los está pegando uno por uno al final de la otra rama para que quede todo lineal.",
+      "en": "You are rewriting history.\nGit has 'lifted' your commits and is pasting them one by one at the end of the other branch so everything looks linear."
+    }
+  },
+  "git stash": {
+    "terminal": "$ git status\nM  index.html (modificado)\n\n$ git stash\nSaved working directory and index state WIP on main: a1b2c3d Agregada navbar\n\n$ git status\nOn branch main\nnothing to commit, working tree clean",
+    "analysis": {
+      "es": "Has guardado tus cambios 'sucios' en un bolsillo temporal.\nTu directorio de trabajo ahora está limpio para que puedas cambiar de rama sin perder nada.",
+      "en": "You have saved your 'dirty' changes in a temporary pocket.\nYour working directory is now clean so you can switch branches without losing anything."
+    }
+  },
+  "git tag": {
+    "terminal": "$ git tag\nv1.0.0\nv1.0.1\nv2.0-beta",
+    "analysis": {
+      "es": "Estas son las etiquetas (versiones) del proyecto.\nSon como marcas permanentes en la historia que dicen 'aquí lanzamos la versión 1.0'.",
+      "en": "These are the project tags (versions).\nThey are like permanent marks in history that say 'here we released version 1.0'."
+    }
+  },
+  "git fetch": {
+    "terminal": "$ git fetch origin\nFrom https://github.com/usuario/repo\n * [new branch]      feature-x  -> origin/feature-x\n   a1b2c3d..9z8y7x6  main       -> origin/main",
+    "analysis": {
+      "es": "Has actualizado tu información sobre el servidor remoto.\nGit ahora sabe que hay nuevos commits y ramas en el servidor, pero NO ha tocado tus archivos locales todavía.",
+      "en": "You have updated your information about the remote server.\nGit now knows there are new commits and branches on the server, but has NOT touched your local files yet."
+    }
+  },
+  "git restore": {
+    "terminal": "$ git status\nChanges not staged for commit:\n  modified:   config.json\n\n$ git restore config.json\n\n$ git status\nOn branch main\nnothing to commit, working tree clean",
+    "analysis": {
+      "es": "Has descartado los cambios en el archivo `config.json`.\nEl archivo ha vuelto a su estado anterior (limpio) y tus modificaciones se han perdido.",
+      "en": "You have discarded changes in `config.json`.\nThe file has returned to its previous state (clean) and your modifications are lost."
+    }
+  },
+  "git clean": {
+    "terminal": "$ git clean -n\nWould remove basura.tmp\nWould remove logs/\n\n$ git clean -fd\nRemoving basura.tmp\nRemoving logs/",
+    "analysis": {
+      "es": "Has borrado archivos que Git no estaba rastreando (untracked).\nEs útil para limpiar archivos generados automáticamente o temporales.",
+      "en": "You have deleted files that Git was not tracking (untracked).\nUseful for cleaning up automatically generated or temporary files."
+    }
+  },
+  "git show": {
+    "terminal": "$ git show a1b2c3d\ncommit a1b2c3d4e5f6...\nAuthor: Tu Nombre <tu@email.com>\nDate:   Mon Nov 20 14:00:00 2023 -0300\n\n    Agregada nueva funcionalidad\n\ndiff --git a/app.js b/app.js\nindex 83c2...92b1 100644\n--- a/app.js\n+++ b/app.js\n@@ -1,2 +1,3 @@\n console.log('Init');\n+console.log('Nueva feature');",
+    "analysis": {
+      "es": "Estás inspeccionando un commit específico.\nVes quién lo hizo, cuándo, qué mensaje puso y exactamente qué cambios de código introdujo.",
+      "en": "You are inspecting a specific commit.\nYou see who did it, when, what message they wrote, and exactly what code changes were introduced."
+    }
+  },
+  "git blame": {
+    "terminal": "$ git blame index.html\na1b2c3d (Juan Perez 2023-11-01 10:00) 1) <html>\ne5f6g7h (Maria Lopez 2023-11-02 15:30) 2)   <body>\na1b2c3d (Juan Perez 2023-11-01 10:00) 3)     <h1>Hola</h1>",
+    "analysis": {
+      "es": "Estás viendo quién escribió cada línea del archivo.\nEs útil para saber a quién preguntar sobre una parte específica del código (no solo para culpar).",
+      "en": "You are seeing who wrote each line of the file.\nUseful to know who to ask about a specific part of the code (not just to blame)."
+    }
+  },
+  "git config": {
+    "terminal": "$ git config --list\nuser.name=Tu Nombre\nuser.email=tu@email.com\ncore.editor=code --wait\ninit.defaultbranch=main",
+    "analysis": {
+      "es": "Esta es tu configuración actual de Git.\nDefine quién eres y cómo se comporta Git en tu máquina.",
+      "en": "This is your current Git configuration.\nIt defines who you are and how Git behaves on your machine."
+    }
+  }
+}
